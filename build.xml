@@ -3,7 +3,7 @@
 
   <taskdef name="jscomp" classname="com.google.javascript.jscomp.ant.CompileTask" classpath="${basedir}/compiler/compiler.jar"/>
 
-  <target name="all" depends="clean,advanced">
+  <target name="all" depends="clean,simple">
   </target>
 
   <target name='clean'>
@@ -13,7 +13,7 @@
   </target>
 
   <target name="simple">
-    <jscomp compilationLevel="simple" warning="quiet" debug="false" output="${basedir}/XMLHttpRequest.simple.min.js">
+    <jscomp compilationLevel="simple" warning="quiet" debug="false" output="${basedir}/XMLHttpRequest.min.js">
       <sources dir="${basedir}">
         <file name="XMLHttpRequest.js"/>
       </sources>
@@ -22,6 +22,9 @@
 
   <target name="advanced">
     <jscomp compilationLevel="advanced" warning="quiet" debug="false" output="${basedir}/XMLHttpRequest.min.js">
+      <externs dir="${basedir}">
+        <file name="externs.js"/>
+      </externs>
       <sources dir="${basedir}">
         <file name="XMLHttpRequest.js"/>
       </sources>

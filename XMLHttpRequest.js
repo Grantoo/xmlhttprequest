@@ -80,6 +80,7 @@
   cXMLHttpRequest.onopen              = null;
   cXMLHttpRequest.onsend              = null;
   cXMLHttpRequest.onabort             = null;
+  cXMLHttpRequest.onload              = null;
   cXMLHttpRequest.prototype.retryCounter = 0;
 
   // Public Methods
