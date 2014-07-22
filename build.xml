@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<project name="Javascript compress project" basedir="." default="all">
+
+  <taskdef name="jscomp" classname="com.google.javascript.jscomp.ant.CompileTask" classpath="${basedir}/compiler/compiler.jar"/>
+
+  <target name="all" depends="clean,advanced">
+  </target>
+
+  <target name='clean'>
+    <delete>
+      <fileset dir="${basedir}" includes="XMLHttpRequest.*.js"/>
+    </delete>
+  </target>
+
+  <target name="simple">
+    <jscomp compilationLevel="simple" warning="quiet" debug="false" output="${basedir}/XMLHttpRequest.simple.min.js">
+      <sources dir="${basedir}">
+        <file name="XMLHttpRequest.js"/>
+      </sources>
+    </jscomp>
+  </target>
+
+  <target name="advanced">
+    <jscomp compilationLevel="advanced" warning="quiet" debug="false" output="${basedir}/XMLHttpRequest.min.js">
+      <sources dir="${basedir}">
+        <file name="XMLHttpRequest.js"/>
+      </sources>
+    </jscomp>
+  </target>
+
+
+</project>

@@ -1,3 +1,20 @@
+Prolog
+======
+
+This was taken from the good work of Sergey Ilinsky. Thanks for the leg up!
+
+My needs were to create a lower level method of retrying an XMLHttpRequest. The retry needed to reside in library
+form and interact with the software we're using well enough.
+
+Changes from the original:
+1) remove any IE specific code - we're dealing with webkit browsers only
+2) use XMLHttpRequest.wrapped if it exists always (tested using Chrome and Firefox)
+3) enabled the queues
+4) added support for .onload() compatibility
+5) added minified versions
+
+Hopefully this is useful to someone.
+
 Scope of implementation
 =====
 
