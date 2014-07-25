@@ -152,7 +152,9 @@
           retry.open.apply(retry, oRequest.retryArguments);
           retry.onload = function() {
             fSynchronizeRetryValues(oRequest, retry);
-            oRequest.onload();
+            if (oRequest.onload) {
+              oRequest.onload();
+            }
           }
           retry.onabort = oRequest.onabort;
           oRequest.onabort = null;
